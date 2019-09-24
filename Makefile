@@ -18,16 +18,6 @@ generate_tgz: get-deps compile
 	if [ -d "deps" ]; then cp -Rf deps pkgroot/${PKG_NAME}; fi
 	if [ -f "sys.config" ]; then cp sys.config pkgroot/${PKG_NAME}/; fi
 	cd pkgroot && tar czf ../${PKG_NAME}.tgz ./${PKG_NAME} && cd ..
-	rm -rf pkgroot
 
 clean:
-	rm -rf pkgroot
-	rm -rf deps
-	rm -rf log*
-	rm -rf data.*
-	rm -f *.rpm
-	rm -f *.tgz
-	$(REBAR) clean
-	rm -rf ebin
-	rm -rf pkgroot
 
